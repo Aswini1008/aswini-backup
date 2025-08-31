@@ -64,7 +64,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.8 }}
           className="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl mx-auto"
         >
-          Full-stack developer with a knack for building scalable, efficient, and user-friendly web applications using React, Java, and modern technologies.
+Full-Stack Java Developer & AI Enthusiast crafting scalable systems and intelligent solutions for the future
         </motion.p>
 
         <motion.div

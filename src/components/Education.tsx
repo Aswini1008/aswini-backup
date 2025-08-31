@@ -9,16 +9,16 @@ const Education = () => {
       college: 'Panimalar Engineering College, Chennai',
       year: '2023 – 2027',
       score: '8.6 CGPA',
-      desc: 'Studied embedded systems, signal processing, VLSI, and microcontrollers. Built multiple hardware-software integrated projects and completed internships in core + software domains.',
-      tags: ['Embedded Systems', 'VLSI', 'Signal Processing', 'IoT', 'Java', 'DSA'],
+      desc: 'Explored embedded systems, VLSI, digital signal processing, and IoT. Built hardware-software integrated projects and expanded into software development with Java, DSA, and AI-focused projects. Completed internships spanning both core and software domains.',
+      tags: ['Embedded Systems', 'VLSI', 'Signal Processing', 'IoT', 'Java', 'DSA','Cloud Computing'],
     },
     {
       degree: 'HSC – Higher Secondary Education',
-      college: 'Holy Infant  Matriculation Hr Sec School',
+      college: 'Holy Infant Matriculation Hr. Sec. School',
       year: '2022 – 2023',
       score: '88%',
-      desc: 'Major in Mathematics, Physics & Computer Science. Built strong fundamentals in logic, programming and problem-solving.',
-      tags: ['Maths', 'Physics', 'Chemistry'],
+      desc: 'Specialized in Mathematics, Physics, and Computer Science. Developed strong problem-solving foundations and coding fundamentals that supported a transition into full-stack and AI development.',
+      tags: ['Mathematics', 'Physics', 'Chemistry'],
     },
   ];
 

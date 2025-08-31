@@ -1,60 +1,50 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase } from 'lucide-react';
+
+const experiences = [
+  {
+    company: "Meta Taaraka AI Pvt. Ltd",
+    position: "AI & Python Research Intern",
+    location: "Remote",
+    period: "Jun 2025 – Aug 2025",
+    points: [
+      "Designed and implemented an AI-powered Expense Tracker using Python and machine learning to deliver personalized financial insights.",
+      "Developed and deployed a real-time Weather Forecasting API using Flask and OpenWeatherMap, integrating dynamic geolocation-based updates.",
+    ],
+    tech: ["Python", "Artificial Intelligence", "Machine Learning", "Flask", "API", "OpenWeatherMap"]
+  },
+  {
+    company: "Test Yatra Pvt. Ltd",
+    position: "Web Development Intern",
+    location: "Chennai",
+    period: "Feb 2025 – Apr 2025",
+    points: [
+      "Built responsive, modular web UIs using React.js and Tailwind CSS with reusable components for scalability.",
+      "Reduced development time by 25% through modular design implementation and efficient component reuse.",
+      "Collaborated in Agile sprints, leveraging GitHub for version control, peer code reviews, and CI/CD pipelines.",
+    ],
+    tech: ["React.js", "Tailwind CSS", "GitHub", "Agile", "Modular Design"]
+  },
+  {
+    company: "Integral Coach Factory (ICF)",
+    position: "Intern – Electrical Design",
+    location: "Chennai",
+    period: "May 2024 – Jun 2024",
+    points: [
+      "Gained practical knowledge of electrical circuit design and wiring layouts for railway coach systems.",
+      "Assisted engineers in preparing safety-compliant electrical layouts, schematic diagrams, and design documentation.",
+    ],
+    tech: ["Electrical Wiring", "Circuit Design", "Rail Coach Systems", "Layout Planning", "Safety Standards"]
+  },
+];
 
 const Experience = () => {
-  const experiences = [
-    {
-      company: "Test Yatra Pvt. Ltd",
-      position: "Intern – Software Testing & QA",
-      period: "Feb – Mar 2025",
-      description:
-        "Worked on manual and automation testing for web applications. Participated in test case design, bug tracking, and quality assurance processes using real-time project modules. Understood SDLC, STLC, and defect life cycle.",
-      technologies: [
-        "Manual Testing",
-        "Automation",
-        "Bug Tracking",
-        "SDLC/STLC",
-        "Test Case Design",
-      ],
-    },
-    {
-      company: "BSNL (Bharat Sanchar Nigam Limited)",
-      position: "Intern – Networking & Telecom",
-      period: "Sep – Oct 2024",
-      description:
-        "Learned the core concepts of telecom systems, switching, broadband architecture, and networking protocols through real-time observations at BSNL exchanges.",
-      technologies: [
-        "Networking",
-        "Switching",
-        "Broadband",
-        "Telecom Infra",
-        "Router Configs",
-      ],
-    },
-    {
-      company: "ICF (Integral Coach Factory)",
-      position: "Intern – Electrical Design",
-      period: "May – Jun 2024",
-      description:
-        "Gained exposure to electric circuit design and wiring mechanisms in train coaches. Assisted in preparing simple electrical layouts and safety documentation.",
-      technologies: [
-        "Electric Wiring",
-        "Rail Coach Design",
-        "Circuit Diagrams",
-        "Safety Standards",
-        "Layout Planning",
-      ],
-    },
-  ];
-
   return (
     <section
       id="experience"
       className="py-20 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900 text-white"
     >
       <div className="section-container max-w-6xl mx-auto px-4">
-        {/* Section Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,43 +53,42 @@ const Experience = () => {
           className="text-4xl font-bold text-center mb-16"
         >
           <span className="gradient-text flex items-center justify-center gap-2">
-            
             Experience
           </span>
         </motion.h2>
 
-        {/* Timeline Layout */}
-        <div className="relative border-l border-pink-500/20 pl-6 space-y-12">
+        <div className="relative border-l border-pink-500/30 pl-6 space-y-14">
           {experiences.map((exp, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
               viewport={{ once: true }}
-              className="relative bg-slate-800/40 border border-pink-500/10 rounded-xl p-6 shadow-md hover:shadow-pink-600/30 transition-all"
+              className="relative bg-slate-800/40 border border-pink-500/10 rounded-xl p-6 shadow-md hover:shadow-pink-600/20 transition-all"
             >
-              {/* Timeline Dot */}
-              <div className="absolute -left-[38px] top-4 w-4 h-4 bg-pink-500 rounded-full border-2 border-white" />
+              {/* Timeline dot */}
+              <div className="absolute -left-[38px] top-5 w-4 h-4 bg-pink-500 rounded-full border-2 border-white shadow" />
 
-              {/* Internship Info */}
+              {/* Company & Role */}
               <div className="mb-2">
-                <h3 className="text-xl font-semibold text-pink-400">
-                  {exp.company}
-                </h3>
-                <span className="text-sm text-pink-200">{exp.period}</span>
+                <h3 className="text-xl font-semibold text-pink-400">{exp.company}</h3>
+                <div className="text-sm text-pink-200">
+                  {exp.period} | {exp.location}
+                </div>
               </div>
 
-              <h4 className="text-lg font-medium text-white mb-2">
-                {exp.position}
-              </h4>
-              <p className="text-sm text-pink-100 leading-relaxed mb-4">
-                {exp.description}
-              </p>
+              <h4 className="text-lg font-medium text-white mb-2">{exp.position}</h4>
 
-              {/* Tech Tags */}
+              <ul className="list-disc list-inside text-sm text-pink-100 leading-relaxed space-y-1 mb-4">
+                {exp.points.map((point, idx) => (
+                  <li key={idx}>{point}</li>
+                ))}
+              </ul>
+
+              {/* Tech Stack Tags */}
               <div className="flex flex-wrap gap-2 mt-2">
-                {exp.technologies.map((tech, idx) => (
+                {exp.tech.map((tech, idx) => (
                   <span
                     key={idx}
                     className="text-xs bg-slate-900 text-pink-300 px-3 py-1 rounded-full border border-pink-500/20 hover:bg-pink-700/20 transition"

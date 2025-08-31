@@ -8,7 +8,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-900 text-slate-300 border-t border-slate-800">
+    <footer className="relative bg-slate-900 text-slate-300 border-t border-slate-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand Info */}
@@ -18,7 +18,9 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold gradient-text mb-4">Aswini</h3>
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent animate-pulse mb-4">
+              Aswini
+            </h3>
             <p className="text-slate-400">
               Passionate full-stack developer focused on crafting clean UI and scalable backend solutions. Let's build something great!
             </p>
@@ -37,9 +39,10 @@ const Footer = () => {
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
-                    className="hover:text-pink-400 transition-colors duration-200 block"
+                    className="relative group transition"
                   >
                     {item}
+                    <span className="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </li>
               ))}
@@ -64,22 +67,24 @@ const Footer = () => {
               smaswini006@gmail.com
             </a>
             <div className="flex gap-4">
-              <a
+              <motion.a
                 href="https://github.com/aravinthbalu15"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-slate-800 p-2 rounded-lg hover:bg-pink-600/20 transition"
+                whileHover={{ scale: 1.15 }}
+                className="bg-slate-800 p-2 rounded-lg hover:shadow-[0_0_12px_rgba(236,72,153,0.7)] transition"
               >
                 <Github className="w-5 h-5 text-slate-300 hover:text-pink-400" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://www.linkedin.com/in/aravinth-kumar-858851281"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-slate-800 p-2 rounded-lg hover:bg-pink-600/20 transition"
+                whileHover={{ scale: 1.15 }}
+                className="bg-slate-800 p-2 rounded-lg hover:shadow-[0_0_12px_rgba(236,72,153,0.7)] transition"
               >
                 <Linkedin className="w-5 h-5 text-slate-300 hover:text-pink-400" />
-              </a>
+              </motion.a>
             </div>
           </motion.div>
         </div>
@@ -91,9 +96,9 @@ const Footer = () => {
           </p>
           <motion.button
             onClick={scrollToTop}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.1, y: -3 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-4 py-2 text-sm text-pink-400 border border-pink-500 rounded-md hover:bg-pink-600/10 transition"
+            className="flex items-center gap-2 px-4 py-2 text-sm text-pink-400 border border-pink-500 rounded-md hover:bg-pink-600/10 shadow-[0_0_8px_rgba(236,72,153,0.4)] transition animate-bounce"
           >
             <ArrowUp className="w-4 h-4" />
             Back to Top

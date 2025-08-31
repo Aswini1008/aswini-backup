@@ -6,14 +6,17 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  const navLinks = useMemo(() => [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
-  ], []);
+  const navLinks = useMemo(
+    () => [
+      { name: 'Home', href: '#home' },
+      { name: 'About', href: '#about' },
+      { name: 'Experience', href: '#experience' },
+      { name: 'Skills', href: '#skills' },
+      { name: 'Projects', href: '#projects' },
+      { name: 'Contact', href: '#contact' },
+    ],
+    []
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,16 +32,16 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // initial check
+    handleScroll(); // initial run
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [navLinks]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-slate-800/100 backdrop-blur-md shadow-md transition-colors duration-300">
-      <div className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6 sm:px-10">
+    <header className="fixed top-0 left-0 w-full z-50 bg-slate-900/95 backdrop-blur-md shadow-lg transition-colors duration-300">
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6 sm:px-10">
         {/* Logo */}
-        <a href="#home" className="text-2xl font-bold gradient-text">
+        <a href="#home" className="text-2xl font-bold gradient-text tracking-wide">
           Aswini<span className="text-pink-400">.</span>
         </a>
 
@@ -60,14 +63,13 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-slate-300 focus:outline-none"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-slate-300 focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
 
       {/* Mobile Dropdown Menu */}
@@ -80,7 +82,7 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-slate-900 border-t border-slate-700"
           >
-            <div className="flex flex-col items-center py-4 space-y-4 text-slate-300">
+            <div className="flex flex-col items-center py-6 space-y-6 text-lg text-slate-300 font-medium">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
