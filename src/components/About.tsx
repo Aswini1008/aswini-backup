@@ -37,7 +37,7 @@ const About = () => {
             className="flex-1"
           >
             <p className="text-lg text-pink-100 mb-5 leading-relaxed">
-              I’m a <span className="text-pink-400 font-semibold">Full-Stack Developer, Java Programmer & AI Enthusiast  </span> 
+              I’m a <span className="text-pink-400 font-semibold">Full- Stack Developer, Java Programmer & AI Enthusiast  </span> 
               passionate about building scalable systems and intelligent applications that make a real impact.
             </p>
 
