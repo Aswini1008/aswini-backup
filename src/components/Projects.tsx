@@ -1,163 +1,138 @@
-import React from "react";
+
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Github } from "lucide-react";
+import { Github, ExternalLink, CheckCircle } from "lucide-react";
+
+const projects = [
+  {
+    title: "PR Power Infrastructure – Corporate Website",
+    description: "A professional corporate portfolio website built using React with smooth animations, reusable components, and clean section-based navigation. The site improves brand presence and user engagement through responsive design and modern UI patterns.",
+    highlights: [
+      "Fully responsive across all devices",
+      "Animated section transitions",
+      "Clean corporate UI/UX",
+      "SEO-friendly structure",
+    ],
+    tech: ["React.js", "Tailwind CSS", "React Router", "Framer Motion", "Vite"],
+    liveLink: "https://www.prpowerinfra.com/",
+    githubLink: "https://github.com/Aswini1008/PR-Final",
+    image: "https://images.unsplash.com/photo-1559028006-448665bd7c20?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Church Website – Events & Announcements Portal",
+    description: "A responsive web application developed to manage church announcements, event updates, and media galleries. The platform provides an organized and accessible interface for community engagement.",
+    highlights: [
+      "Responsive layout",
+      "Event and announcement sections",
+      "Media gallery integration",
+      "Simple and clean UI",
+    ],
+    tech: ["React.js", "Bootstrap", "Node.js", "MongoDB"],
+    liveLink: "https://cosmic-squirrel-a9efa8.netlify.app/",
+    githubLink: "https://github.com/aravinthbalu15/panchu",
+    image: "https://images.unsplash.com/photo-1518365664917-2115517a4c49?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "PR Power Infrastructure – Company Portfolio Website",
-      description:
-        "A responsive corporate website built with animated routing, reusable components, and scroll-based navigation across 6+ sections. Enhanced UX led to a 35% lower bounce rate.",
-      technologies: [
-        "React.js",
-        "Tailwind CSS",
-        "React Router",
-        "Framer Motion",
-        "Vite",
-      ],
-      image: "/images/pr.png",
-      demoUrl: "https://pr-power.netlify.app",
-      codeUrl: "https://github.com/Aswini1008/PR-Final",
-    },
-    {
-      title: "Church Website",
-      description:
-        "Responsive portal for event updates, media gallery, and announcements. Built with MERN stack and deployed on Netlify.",
-      technologies: ["React.js", "Bootstrap", "Node.js", "MongoDB"],
-      image: "/images/church-screenshot.jpg",
-      demoUrl: "https://cosmic-squirrel-a9efa8.netlify.app/",
-      codeUrl: "https://github.com/aravinthbalu15/panchu",
-    },
-    {
-      title: "Task Manager Tool",
-      description:
-        "A full-stack task management tool with drag-drop feature, analytics, and real-time updates using WebSockets.",
-      technologies: ["React", "Spring Boot", "MySQL", "WebSocket"],
-      image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80",
-      demoUrl: "https://your-task-manager.vercel.app",
-      codeUrl: "https://github.com/yourusername/task-manager",
-    },
-    {
-      title: "E-Commerce Website",
-      description:
-        "An e-commerce platform with payment integration, product filtering, authentication, and admin dashboard.",
-      technologies: ["React.js", "Node.js", "MongoDB", "Stripe"],
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
-      demoUrl: "https://your-ecommerce-demo.netlify.app",
-      codeUrl: "https://github.com/yourusername/ecommerce-platform",
-    },
-  ];
-
   return (
     <section
       id="projects"
-      className="py-24 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900 text-white"
+      className="w-full bg-slate-900 py-24 px-4 sm:px-6 lg:px-8"
     >
-      <div className="section-container max-w-6xl mx-auto px-4">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold mb-4 gradient-text">
-            Featured Projects
-          </h2>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            Showcasing impactful apps I’ve built with modern tech — from
-            corporate portfolios to e-commerce.
-          </p>
-        </motion.div>
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                Things I've Built
+            </h2>
+            <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
+                A selection of my professional and personal work.
+            </p>
+        </div>
 
-        {/* Project Cards */}
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="space-y-20">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-              className="group rounded-2xl bg-slate-800/60 border border-slate-700 hover:border-pink-500/60 overflow-hidden shadow-xl hover:shadow-pink-600/40 transition-all duration-300"
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
             >
-              {/* Image with Hover Overlay */}
-              <div className="relative overflow-hidden">
-                <motion.img
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+                className="rounded-xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-gray-700"
+              >
+                <img
                   src={project.image}
-                  alt={`${project.title} Screenshot`}
-                  className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
+                  alt={project.title}
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
+              </motion.div>
 
-              {/* Content */}
-              <div className="p-6 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-2xl font-semibold text-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-slate-300 text-sm mb-4">
-                    {project.description}
-                  </p>
+              <div className={index % 2 === 0 ? "" : "lg:order-first"}>
+                <h3 className="text-2xl font-bold text-white mb-3">
+                  {project.title}
+                </h3>
+                <p className="text-gray-400 mb-6 leading-relaxed">
+                  {project.description}
+                </p>
 
-                  {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.map((tech, i) => (
-                      <motion.span
-                        whileHover={{ scale: 1.1 }}
-                        key={i}
-                        className="text-xs px-3 py-1 rounded-full bg-slate-700 text-pink-300 border border-pink-500/30 transition-all"
-                      >
-                        {tech}
-                      </motion.span>
+                <ul className="space-y-3 mb-6">
+                    {project.highlights.map((highlight, i) => (
+                        <li key={i} className="flex items-center">
+                            <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                            <span className="text-gray-300">{highlight}</span>
+                        </li>
                     ))}
-                  </div>
+                </ul>
+
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {project.tech.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="text-xs px-3 py-1 rounded-full bg-gray-800 text-blue-300 border border-gray-700/50"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
 
-                {/* Buttons */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
-                  className="flex gap-3"
-                >
-                  <Button
-                    size="sm"
-                    className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white w-full transition-transform hover:scale-105"
+                <div className="flex items-center gap-4">
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full text-center"
-                    >
-                      Live Demo
-                    </a>
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="bg-white text-slate-900 border border-slate-300 hover:bg-pink-50 w-full transition-transform hover:scale-105"
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Live Demo
+                  </a>
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full border-2 border-gray-700 px-6 py-3 text-sm font-semibold text-gray-300 shadow-md transition-all hover:border-gray-500 hover:bg-gray-800/50"
                   >
-                    <a
-                      href={project.codeUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center"
-                    >
-                      <Github className="w-4 h-4 mr-1" />
-                      Code
-                    </a>
-                  </Button>
-                </motion.div>
+                    <Github className="w-4 h-4 mr-2" />
+                    GitHub
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}

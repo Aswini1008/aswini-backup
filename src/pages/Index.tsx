@@ -1,31 +1,51 @@
-import React from 'react';
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Experience from '@/components/Experience';
-import Education from '@/components/Education';
-import Skills from '@/components/Skills';
-import TechHighlights from '@/components/TechHighlights';
-import Projects from '@/components/Projects';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import About from "@/components/About";
+import Contact from "@/components/Contact";
+import Education from "@/components/Education";
+import Experience from "@/components/Experience";
+import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
+import Projects from "@/components/Projects";
+import Services from "@/components/Services";
+import Skills from "@/components/Skills";
+import TechHighlights from "@/components/TechHighlights";
+import { Toaster } from "@/components/ui/sonner";
+import FadeIn from "@/components/FadeIn";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100">
+    <>
       <Navbar />
-      <main>
+      <main className="bg-slate-900">
         <Hero />
-        <About />
-        <Experience />
-        <Education />
-        <Skills />
-        <TechHighlights /> {/* ✅ Added here */}
-        <Projects />
-        <Contact />
+        <FadeIn>
+          <About />
+        </FadeIn>
+        <FadeIn>
+          <TechHighlights />
+        </FadeIn>
+        <FadeIn>
+          <Experience />
+        </FadeIn>
+        <FadeIn>
+          <Skills />
+        </FadeIn>
+        <FadeIn>
+          <Projects />
+        </FadeIn>
+        <FadeIn>
+          <Services />
+        </FadeIn>
+        <FadeIn>
+          <Education />
+        </FadeIn>
+        <FadeIn>
+          <Contact />
+        </FadeIn>
       </main>
       <Footer />
-    </div>
+      <Toaster />
+    </>
   );
 };
 

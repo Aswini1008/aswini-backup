@@ -1,117 +1,110 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowDown, User } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { Link } from "react-scroll";
 
 const Hero = () => {
-  const [currentText, setCurrentText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
-  const [textIndex, setTextIndex] = useState(0);
-
-  const texts = ['Web Developer', 'Java Developer', 'Problem Solver'];
-
-  useEffect(() => {
-    const typeEffect = () => {
-      const fullText = texts[textIndex];
-      if (isTyping) {
-        if (currentText.length < fullText.length) {
-          setCurrentText(fullText.slice(0, currentText.length + 1));
-        } else {
-          setTimeout(() => setIsTyping(false), 1500);
-        }
-      } else {
-        if (currentText.length > 0) {
-          setCurrentText(currentText.slice(0, -1));
-        } else {
-          setIsTyping(true);
-          setTextIndex((prev) => (prev + 1) % texts.length);
-        }
-      }
-    };
-    const timer = setTimeout(typeEffect, isTyping ? 100 : 50);
-    return () => clearTimeout(timer);
-  }, [currentText, isTyping, textIndex]);
+  const identityLine =
+    "I build scalable, clean, and efficient web applications using Java, modern web technologies, and AI-driven solutions.";
 
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900  to-slate-900 text-white px-4 md:px-0 relative"
+      className="relative flex min-h-screen items-center justify-center bg-gradient-to-b from-slate-900 to-gray-900 py-24 text-white"
     >
-      <div className="max-w-6xl w-full text-center z-10 py-20 md:py-32">
-        <motion.h1
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold leading-tight tracking-tight"
-        >
-          Hi, I'm <span className="text-pink-500">Aswini</span>
-        </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="mt-4 text-2xl md:text-3xl text-pink-300"
-        >
-          <span>I’m a </span>
-          <span className="font-semibold">{currentText}</span>
-          <span className="animate-blink ml-1">|</span>
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl mx-auto"
-        >
-Full-Stack Java Developer & AI Enthusiast crafting scalable systems and intelligent solutions for the future
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 1.2 }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-      <a
-  href="/Aswini_SM_Resume.pdf"
-  download
-  className="bg-pink-600 hover:bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md"
->
-  Download Resume
-</a>
-
-
-
-          <Button
-            size="lg"
-            className="bg-white text-pink-600 border-2 border-pink-500 hover:bg-pink-100 px-6 py-3 text-lg font-medium"
-          >
-            <User className="w-5 h-5 mr-2" />
-            <a href="#about">About Me</a>
-          </Button>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 1.8 }}
-          className="mt-16"
-        >
-          <a
-            href="#about"
-            className="inline-flex flex-col items-center text-pink-300 hover:text-white"
-          >
-            <span className="text-sm mb-1">Scroll to explore</span>
-            <ArrowDown className="w-6 h-6 animate-bounce" />
-          </a>
-        </motion.div>
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute bottom-0 left-1/4 h-96 w-96 animate-pulse rounded-full bg-blue-500/10 blur-3xl"></div>
+        <div className="absolute right-1/4 top-0 h-96 w-96 animate-pulse rounded-full bg-violet-500/10 blur-3xl"></div>
       </div>
 
-      {/* Decorative Circles */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 bg-pink-500/10 rounded-full w-[400px] h-[400px] blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/3 transform bg-purple-600/10 rounded-full w-[300px] h-[300px] blur-2xl" />
+      <div className="container mx-auto flex max-w-6xl flex-col items-center px-4 text-center lg:flex-row lg:text-left">
+        {/* Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="lg:w-2/3"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-4 inline-block rounded-full bg-gray-800/50 px-4 py-1 text-sm font-semibold tracking-wider text-blue-300"
+          >
+            WELCOME TO MY CORNER OF THE INTERNET
+          </motion.div>
+
+          <h1 className="text-5xl font-bold tracking-tight text-white md:text-7xl">
+            Hi, I'm <span className="text-blue-400">S M Aswini</span>.
+          </h1>
+
+          <h2 className="mt-4 text-3xl font-semibold text-gray-300 md:text-4xl">
+            Full-Stack Java Developer & AI Enthusiast
+          </h2>
+
+          <p className="mt-6 max-w-2xl text-lg text-gray-400 lg:max-w-none">
+            {identityLine}
+          </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 1.0 }}
+            className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:items-start"
+          >
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              className="cursor-pointer rounded-full bg-blue-600 px-8 py-3 text-lg font-medium text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            >
+              Let's Make Magic
+            </Link>
+            <Link
+              to="projects"
+              smooth={true}
+              duration={500}
+              className="cursor-pointer rounded-full border-2 border-gray-700 px-8 py-3 text-lg font-medium text-gray-300 shadow-md transition-all hover:border-gray-500 hover:bg-gray-800/50"
+            >
+              Stalk My Work
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 1.2 }}
+            className="mt-10 flex items-center justify-center space-x-6 lg:justify-start"
+          >
+            <a
+              href="https://github.com/Aswini1008"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 transition-colors hover:text-blue-400"
+            >
+              <FaGithub className="h-7 w-7" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/aswini-sm-97292629a"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 transition-colors hover:text-blue-400"
+            >
+              <FaLinkedin className="h-7 w-7" />
+            </a>
+            <a
+              href="https://www.instagram.com/_.aswini._10?igsh=MmZvdXA2bnRxYnli"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 transition-colors hover:text-blue-400"
+            >
+              <FaInstagram className="h-7 w-7" />
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* Optional Image Placeholder - can be added later */}
+        {/* <div className="lg:w-1/3 mt-10 lg:mt-0"> ... </div> */}
       </div>
     </section>
   );
